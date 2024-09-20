@@ -4,6 +4,6 @@ import { createUserHandler } from "../controller/user.controller.js";
 
 const router = express.Router();
 
-router.get("/api/users/", createUserHandler);
+router.post("/api/users/", createUserHandler);
 
 export default router;

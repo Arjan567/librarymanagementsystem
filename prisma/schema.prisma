@@ -18,8 +18,16 @@ model User {
   updatedAt DateTime @updatedAt
 }
 
+model Book {
+  id        String   @id @default(uuid())
+  name      String
+  author    String
+  bookImg   String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
 enum Role {
   USER
   ADMIN
 }
-

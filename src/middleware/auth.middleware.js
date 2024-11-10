@@ -10,7 +10,7 @@ export const privateRoute = catchAsyncError(async (req, res, next) => {
   if (!accessToken) {
     return res
       .status(401)
-      .json({ success: false, message: "Unauthorized! Acess denied! 1" });
+      .json({ success: false, message: "Unauthorized! Acess denied!" });
   }
 
   try {
@@ -20,7 +20,7 @@ export const privateRoute = catchAsyncError(async (req, res, next) => {
     if (!user) {
       return res
         .status(401)
-        .json({ success: false, message: "Unauthorized! Acess denied! 2" });
+        .json({ success: false, message: "Unauthorized! Acess denied!" });
     }
 
     req.user = {
@@ -38,7 +38,7 @@ export const privateRoute = catchAsyncError(async (req, res, next) => {
     if (error.name === "TokenExpiredError") {
       return res
         .status(401)
-        .json({ success: false, message: "Unauthorized! Acess denied! 3" });
+        .json({ success: false, message: "Unauthorized! Acess denied!" });
     }
   }
 });

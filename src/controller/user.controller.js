@@ -30,10 +30,8 @@ export const createUserHandler = catchAsyncError(async (req, res, next) => {
 
   const user = await createUser(payload);
 
-  return res.json({
-    status: 200,
-    message: "User Created Successfullt",
-    user,
+  return res.status(200).json({
+    user
   });
 });
 
@@ -61,16 +59,7 @@ export const loginUserHandler = catchAsyncError(async (req, res, next) => {
   setCookies(res, accessToken, refreshToken);
 
   res.status(200).json({
-    success: true,
-    message: "Logged in successfully.",
-    user: {
-      id: User.id,
-      email: User.email,
-      name: User.name,
-      profile: User.profile,
-      createdAt: User.createdAt,
-      updatedAt: User.updatedAt,
-    },
+    User
   });
 });
 
@@ -123,5 +112,11 @@ export const logoutHandler = catchAsyncError(async (req, res, next) => {
   res.status(200).json({
     sucess: true,
     message: "Logged out successfully",
+  });
+});
+
+export const getProfileHandler = catchAsyncError(async (req, res, next) => {
+  res.status(200).json({
+    user: req.user,
   });
 });

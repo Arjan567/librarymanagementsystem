@@ -7,4 +7,5 @@ export const createBookSchema = vine.object({
     name: vine.string().minLength(2),
     author: vine.string().minLength(2),
     bookImg: vine.string().minLength(2),
+    desc:  vine.string()
 })
